@@ -1,0 +1,109 @@
+.title {
+    font-family: 'Playfair Display';
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    position: relative;
+    @include responsive-size(font-size, 36, 32, $maxWidthContainer);
+    @include responsive-size(padding-bottom, 40, 20, $maxWidthContainer);
+
+    transform: translate(0px, 100%);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+
+    &._active {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 1px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff;
+    }
+}
+
+.link {
+    display: inline-block;
+    line-height: 1.27;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 0;
+    color: #fff;
+    border: 1px solid #FFFFFF;
+    transition: all 0.3s ease 0s;
+    @include responsive-size(font-size, 18, 16, $maxWidthContainer);
+    @include responsive-size(padding-left, 28, 18, $maxWidthContainer);
+    @include responsive-size(padding-right, 28, 18, $maxWidthContainer);
+
+    @media (any-hover:hover) {
+        &:hover {
+            color: #000;
+            background-color: #fff;
+            border-color: #000;
+        }
+    }
+}
+
+.text {
+    font-size: 14px;
+    line-height: 150%;
+    color: #FFFFFF;
+}
+
+.row {
+
+    &__column-img {
+        flex: 1 0 46% !important;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        text-align: center;
+
+        @media (max-width:$md2+px) {
+            justify-content: center;
+        }
+    }
+}
+
+._ibg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+    img {
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+body.ie {
+    ._ibg {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    ._ibg img {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
